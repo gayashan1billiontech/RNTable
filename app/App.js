@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-  btn: { width: 58, height: 18, marginLeft: 15, backgroundColor: '#c8e1ff', borderRadius: 2 },
+  btn: { width: 200, height: 18, marginLeft: 15, backgroundColor: '#c8e1ff', borderRadius: 2 },
   paddingTop: {paddingTop: 30, paddingBottom: 30},
   btnText: { textAlign: 'center' }
 });
