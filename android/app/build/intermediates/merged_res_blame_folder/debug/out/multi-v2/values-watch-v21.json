@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/aux-075/Documents/Projects/auth0/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "/home/aux-075/Documents/Projects/RNTable/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
                     "source": "/home/aux-075/.gradle/caches/transforms-3/c12307a4cc8494fe43d892a7e0a8b0be/transformed/appcompat-1.4.1/res/values-watch-v21/values-watch-v21.xml",

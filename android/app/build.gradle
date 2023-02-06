@@ -135,12 +135,11 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.auth0samples.qa"
+        applicationId "com.tableSaple"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        manifestPlaceholders = [auth0Domain: "dev-vpeydxlk5i6w6f2s.us.auth0.com", auth0Scheme: "${applicationId}"]
     }
 
     splits {

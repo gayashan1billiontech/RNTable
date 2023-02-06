@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.auth0samples.qa"
+3    package="com.tableSaple"
 4    android:versionCode="1"
 5    android:versionName="1.0" >
 6
@@ -9,140 +9,82 @@
 9        android:targetSdkVersion="31" />
 10
 11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-11-->/home/aux-075/Documents/Projects/auth0/android/app/src/debug/AndroidManifest.xml:5:5-77
-11-->/home/aux-075/Documents/Projects/auth0/android/app/src/debug/AndroidManifest.xml:5:22-75
+11-->/home/aux-075/Documents/Projects/RNTable/android/app/src/debug/AndroidManifest.xml:5:5-77
+11-->/home/aux-075/Documents/Projects/RNTable/android/app/src/debug/AndroidManifest.xml:5:22-75
 12    <uses-permission android:name="android.permission.INTERNET" />
-12-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:4:5-67
-12-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:4:22-64
+12-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:4:5-67
+12-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:4:22-64
 13
-14    <queries>
-14-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:5-22:15
-15        <intent>
-15-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:9-21:18
-16            <action android:name="android.intent.action.VIEW" />
-16-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-65
-16-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:21-62
-17
-18            <category android:name="android.intent.category.BROWSABLE" />
-18-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-74
-18-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:23-71
-19
-20            <data android:scheme="https" />
-20-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-44
-20-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:19-41
-21        </intent>
-22    </queries>
-23
-24    <application
-24-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:6:5-24:19
-25        android:name="com.auth0samples.MainApplication"
-25-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:7:7-38
-26        android:allowBackup="false"
-26-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:11:7-34
-27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-27-->[androidx.core:core:1.7.0] /home/aux-075/.gradle/caches/transforms-3/39687229a8d64c93b3392dbcf558903c/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
-28        android:debuggable="true"
-29        android:icon="@mipmap/ic_launcher"
-29-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:9:7-41
-30        android:label="@string/app_name"
-30-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:8:7-39
-31        android:roundIcon="@mipmap/ic_launcher_round"
-31-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:10:7-52
-32        android:theme="@style/AppTheme"
-32-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:12:7-38
-33        android:usesCleartextTraffic="true" >
-33-->/home/aux-075/Documents/Projects/auth0/android/app/src/debug/AndroidManifest.xml:8:9-44
-34        <activity
-34-->/home/aux-075/Documents/Projects/auth0/android/app/src/debug/AndroidManifest.xml:11:9-111
-35            android:name="com.facebook.react.devsupport.DevSettingsActivity"
-35-->/home/aux-075/Documents/Projects/auth0/android/app/src/debug/AndroidManifest.xml:11:19-83
-36            android:exported="false" />
-36-->/home/aux-075/Documents/Projects/auth0/android/app/src/debug/AndroidManifest.xml:11:84-108
-37        <activity
-37-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:13:7-23:18
-38            android:name="com.auth0samples.MainActivity"
-38-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:14:9-37
-39            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-39-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:16:9-118
-40            android:exported="true"
-40-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:18:9-32
-41            android:label="@string/app_name"
-41-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:15:9-41
-42            android:windowSoftInputMode="adjustResize" >
-42-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:17:9-51
-43            <intent-filter>
-43-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:19:9-22:25
-44                <action android:name="android.intent.action.MAIN" />
-44-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:20:13-65
-44-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:20:21-62
-45
-46                <category android:name="android.intent.category.LAUNCHER" />
-46-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:21:13-73
-46-->/home/aux-075/Documents/Projects/auth0/android/app/src/main/AndroidManifest.xml:21:23-70
-47            </intent-filter>
-48        </activity>
-49        <activity
-49-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:9-30:75
-50            android:name="com.auth0.react.AuthenticationActivity"
-50-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-66
-51            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboard|keyboardHidden"
-51-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-115
-52            android:exported="false"
-52-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-37
-53            android:launchMode="singleTask"
-53-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-44
-54            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-54-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-72
-55        <activity
-55-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:31:9-47:20
-56            android:name="com.auth0.react.RedirectActivity"
-56-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-60
-57            android:exported="true" >
-57-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:33:13-36
-58            <intent-filter android:autoVerify="true" >
-58-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:34:13-46:29
-58-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:35:17-42
-59                <action android:name="android.intent.action.VIEW" />
-59-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-65
-59-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:21-62
-60
-61                <category android:name="android.intent.category.DEFAULT" />
-61-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:39:17-76
-61-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:39:27-73
-62                <category android:name="android.intent.category.BROWSABLE" />
-62-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-74
-62-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:23-71
-63
-64                <data
-64-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-44
-65                    android:host="dev-vpeydxlk5i6w6f2s.us.auth0.com"
-66                    android:pathPrefix="/android/com.auth0samples.qa/callback"
-67                    android:scheme="com.auth0samples.qa" />
-67-->[:react-native-auth0] /home/aux-075/Documents/Projects/auth0/node_modules/react-native-auth0/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:19-41
-68            </intent-filter>
-69        </activity>
-70
-71        <provider
-71-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
-72            android:name="androidx.startup.InitializationProvider"
-72-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
-73            android:authorities="com.auth0samples.qa.androidx-startup"
-73-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
-74            android:exported="false" >
-74-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
-75            <meta-data
-75-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
-76                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-76-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
-77                android:value="androidx.startup" />
-77-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
-78            <meta-data
-78-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/aux-075/.gradle/caches/transforms-3/c4546a3abf89cc163d1e6ebc9c7965e9/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
-79                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-79-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/aux-075/.gradle/caches/transforms-3/c4546a3abf89cc163d1e6ebc9c7965e9/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
-80                android:value="androidx.startup" />
-80-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/aux-075/.gradle/caches/transforms-3/c4546a3abf89cc163d1e6ebc9c7965e9/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
-81        </provider>
-82    </application>
-83
-84</manifest>
+14    <application
+14-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:6:5-24:19
+15        android:name="com.tableSaple.MainApplication"
+15-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:7:7-38
+16        android:allowBackup="false"
+16-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:11:7-34
+17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+17-->[androidx.core:core:1.7.0] /home/aux-075/.gradle/caches/transforms-3/39687229a8d64c93b3392dbcf558903c/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+18        android:debuggable="true"
+19        android:icon="@mipmap/ic_launcher"
+19-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:9:7-41
+20        android:label="@string/app_name"
+20-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:8:7-39
+21        android:roundIcon="@mipmap/ic_launcher_round"
+21-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:10:7-52
+22        android:theme="@style/AppTheme"
+22-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:12:7-38
+23        android:usesCleartextTraffic="true" >
+23-->/home/aux-075/Documents/Projects/RNTable/android/app/src/debug/AndroidManifest.xml:8:9-44
+24        <activity
+24-->/home/aux-075/Documents/Projects/RNTable/android/app/src/debug/AndroidManifest.xml:11:9-111
+25            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+25-->/home/aux-075/Documents/Projects/RNTable/android/app/src/debug/AndroidManifest.xml:11:19-83
+26            android:exported="false" />
+26-->/home/aux-075/Documents/Projects/RNTable/android/app/src/debug/AndroidManifest.xml:11:84-108
+27        <activity
+27-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:13:7-23:18
+28            android:name="com.tableSaple.MainActivity"
+28-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:14:9-37
+29            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+29-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:16:9-118
+30            android:exported="true"
+30-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:18:9-32
+31            android:label="@string/app_name"
+31-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:15:9-41
+32            android:windowSoftInputMode="adjustResize" >
+32-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:17:9-51
+33            <intent-filter>
+33-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:19:9-22:25
+34                <action android:name="android.intent.action.MAIN" />
+34-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:20:13-65
+34-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:20:21-62
+35
+36                <category android:name="android.intent.category.LAUNCHER" />
+36-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:21:13-73
+36-->/home/aux-075/Documents/Projects/RNTable/android/app/src/main/AndroidManifest.xml:21:23-70
+37            </intent-filter>
+38        </activity>
+39
+40        <provider
+40-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+41            android:name="androidx.startup.InitializationProvider"
+41-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+42            android:authorities="com.tableSaple.androidx-startup"
+42-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+43            android:exported="false" >
+43-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+44            <meta-data
+44-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+45                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+45-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+46                android:value="androidx.startup" />
+46-->[androidx.emoji2:emoji2:1.0.0] /home/aux-075/.gradle/caches/transforms-3/d521d66871c0df0f8fec0f4535d29a7a/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+47            <meta-data
+47-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/aux-075/.gradle/caches/transforms-3/c4546a3abf89cc163d1e6ebc9c7965e9/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+48                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+48-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/aux-075/.gradle/caches/transforms-3/c4546a3abf89cc163d1e6ebc9c7965e9/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+49                android:value="androidx.startup" />
+49-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/aux-075/.gradle/caches/transforms-3/c4546a3abf89cc163d1e6ebc9c7965e9/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+50        </provider>
+51    </application>
+52
+53</manifest>

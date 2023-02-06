@@ -1,4 +1,4 @@
-package com.auth0samples;
+package com.tableSaple;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
