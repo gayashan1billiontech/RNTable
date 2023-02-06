@@ -19,22 +19,24 @@ export const addRow = (dataset, index, rowType, columnCount, below = true) => {
 
     for(let rowData of dataset){
 
+        const clonedObject = Object.assign({}, rowData);
 
-        if(rowData.rowId < conditionalIdex ){
-            newArray.push(rowData);
-        }else if(rowData.rowId === conditionalIdex){
-            newArray.push(rowData);
-            const newObject = ROW_TYPE_AND_TEMPLATE_MAPING[rowType];
+        if(clonedObject.rowId < conditionalIdex ){
+            newArray.push(clonedObject);
+            
+        }else if(clonedObject.rowId === conditionalIdex){
+            newArray.push(clonedObject);
+            const newObject = { ...ROW_TYPE_AND_TEMPLATE_MAPING[rowType]};
             if(newObject.rowType !== DESCRIPTIVE_ROW && newObject.questionSelectionType !== LONG_ANSWER){
                 for(let i = 0 ; i < columnCount; i++){
                     newObject.columns.push(COLUMN_TEMPLATE);
                 }
             }
-            newObject.rowId = insertIndex
+            newObject.rowId = insertIndex;
             newArray.push(newObject);
         }else{
-            rowData.rowId = rowData.rowId + 1;
-            newArray.push(rowData);
+            clonedObject.rowId = clonedObject.rowId + 1;
+            newArray.push(clonedObject);
         }
     }
 

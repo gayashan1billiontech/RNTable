@@ -10,6 +10,7 @@ import { removeRow, addRow } from './TableHandler';
 const sampleDataSet = [
     {
         rowId: 1,
+        id: 1,
         rowType: HEADER,
         questionSelectionType: null,
         columns: [
@@ -38,6 +39,7 @@ const sampleDataSet = [
     },
     {
         rowId: 2,
+        id: 2,
         rowType: DESCRIPTIVE_ROW,
         questionSelectionType: null,
         columns: [
@@ -52,6 +54,7 @@ const sampleDataSet = [
     },
     {
         rowId: 3,
+        id: 3,
         rowType: QUESTION_ROW,
         questionSelectionType: LONG_ANSWER,
         columns: [
@@ -73,6 +76,7 @@ const sampleDataSet = [
     },
     {
         rowId: 4,
+        id: 4,
         rowType: QUESTION_ROW,
         questionSelectionType: SINGLE_SELECTION,
         columns: [
@@ -117,22 +121,23 @@ const CellTable = () => {
 
     const onchangeRemoveRowIndex = (number) => {
         onChangeNumber(number);
-        const updatedDataset = removeRow(tableData,number);
+        const updatedDataset = removeRow(Object.assign([], tableData),number);
         onChangeTableData(updatedDataset);
         onChangeNumber(null);
     }
 
     const onAddRowAbove = (number) => {
-        const updatedDataset = addRow(tableData,parseInt(number), rowType,columnCount, false);
-        onChangeTableData(updatedDataset);
+        if(!number || number.trim() === '' ) return;
+        const updatedDataset = addRow( Object.assign([], tableData),parseInt(number), rowType,columnCount, false);
+        onChangeTableData(Object.assign([], updatedDataset));
     }
 
     const onAddRowBelow = (number) => {
         if(!number || number.trim() === '' ) return;
-        const updatedDataset = addRow(tableData,parseInt(number), rowType,columnCount, true);
-        onChangeTableData(updatedDataset);
+        const updatedDataset = addRow(Object.assign([], tableData),parseInt(number), rowType,columnCount, true);
+        onChangeTableData(Object.assign([], updatedDataset));
     }
-    console.log('tableData',tableData);
+    
     return (
         <View style={styles.container}>
             <View style={styles.paddingTop}>
