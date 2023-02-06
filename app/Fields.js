@@ -2,7 +2,6 @@ import React from 'react';
 import { SafeAreaView, TouchableOpacity, TextInput, Text } from 'react-native';
 
 const InputFiled = (props) => {
-console.log('props',props);
     return (
         <SafeAreaView>
             <TextInput
