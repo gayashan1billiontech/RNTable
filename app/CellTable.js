@@ -1,13 +1,14 @@
 
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { Table, TableWrapper } from 'react-native-table-component';
 import { HEADER, DESCRIPTIVE_ROW, QUESTION_ROW, LONG_ANSWER, SINGLE_SELECTION, DEFAULT } from './Constants';
 import { CellHook } from './CellHook';
+import { InputFiled } from './Fields';
 
 
 const CellTable = () => {
-
+    const [number, onChangeNumber] = React.useState('');
     const sampleDataSet = [
         {
             rowId: 0,
@@ -112,6 +113,26 @@ const CellTable = () => {
 
     return (
         <View style={styles.container}>
+            <View style={styles.paddingTop}>
+          <TouchableOpacity onPress={() => {}} >
+              <View style={styles.btn}>
+                  <Text style={styles.btnText}>insert column</Text>
+              </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => {}} >
+              <View style={styles.btn}>
+                  <Text style={styles.btnText}>Remove column</Text>
+              </View>
+          </TouchableOpacity>
+      </View>
+      <View>
+          <Text>insert row above</Text><InputFiled onChangeNumber={onChangeNumber} number={number} placeholder="insert row above" keyboardType="numeric" styles={styles.input} />
+          <Text>insert row below</Text><InputFiled onChangeNumber={onChangeNumber} number={number} placeholder="insert row below" keyboardType="numeric" styles={styles.input} />
+      </View>
+      <View>
+          <Text>remove row</Text><InputFiled onChangeNumber={onChangeNumber} number={number} placeholder="remove row" keyboardType="numeric" styles={styles.input} />
+      </View>
             <Table borderStyle={{ borderWidth: 2, borderColor: '#c8e1ff' }}>
                 {
                     sampleDataSet.map((rowData, rowId) => {
@@ -139,5 +160,14 @@ export default CellTable;
 
 const styles = StyleSheet.create({
     container: { padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    row: { flexDirection: 'row' }
+    row: { flexDirection: 'row' },
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+      },
+      btn: { width: 200, height: 18, marginLeft: 15, backgroundColor: '#c8e1ff', borderRadius: 2 },
+      paddingTop: {paddingTop: 30, paddingBottom: 30},
+      btnText: { textAlign: 'center' }
 });
