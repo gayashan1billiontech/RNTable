@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text, Dimensions } from 'react-native';
 import { Table, TableWrapper } from 'react-native-table-component';
 import { HEADER, DESCRIPTIVE_ROW, QUESTION_ROW, LONG_ANSWER, SINGLE_SELECTION, DEFAULT } from './Constants';
 import { CellHook } from './CellHook';
 import { InputFiled } from './Fields';
-import { removeRow, addRow, changeColumnCount } from './TableHandler';
+import { removeRow, addRow, changeColumnCount, calculateColumnWidths } from './TableHandler';
 
 const sampleDataSet = [
     {
@@ -114,12 +114,23 @@ const columnWidthsTemplate = {
 };
 
 const CellTable = () => {
+    const windowWidth = Dimensions.get('window').width;
     const [number, onChangeNumber] = React.useState('');
     const [rowType, onchangeInsertRowType] = React.useState(1);
     const [questionType, onchangeInsertquestionType] = React.useState(1);
     const [columnCount, onChangeColumnCount] = React.useState(3);
     const [tableData, onChangeTableData] = React.useState(sampleDataSet);
     const [columnWidths, setColumnWidths] = React.useState(columnWidthsTemplate);
+
+    React.useEffect(() => {
+        const newWidths = calculateColumnWidths(columnWidths,windowWidth,columnCount);
+        setColumnWidths(newWidths);
+    },[0]);
+
+    React.useEffect(() => {
+        const newWidths = calculateColumnWidths(columnWidths,windowWidth,columnCount);
+        setColumnWidths(newWidths);
+    },[columnCount]);
     
     const onchangeRemoveRowIndex = (number) => {
         onChangeNumber(number);
@@ -141,16 +152,17 @@ const CellTable = () => {
     }
 
     const changeColumns = (add) => {
-console.log('object');
+
         let columnCountCopy  = columnCount;
 
         if(add){
             columnCountCopy = columnCount + 1;
-        }else if(!add && columnCount > 3) {
+        }else if(add === false && columnCount > 3) {
             columnCountCopy = columnCount - 1;
         }
+
         onChangeColumnCount(columnCountCopy);
-        const updatedDataset =  changeColumnCount(tableData, add, columnCountCopy);
+        const updatedDataset =  columnCount !== columnCountCopy? changeColumnCount(tableData, add, columnCountCopy) : tableData;
         onChangeTableData(Object.assign([], updatedDataset));
     }
     
@@ -204,7 +216,7 @@ console.log('object');
 export default CellTable;
 
 const styles = StyleSheet.create({
-    container: { padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+    container: { padding: 10, paddingTop: 30, backgroundColor: '#fff' },
     row: { flexDirection: 'row' },
     input: {
         height: 40,

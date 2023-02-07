@@ -70,3 +70,23 @@ export const changeColumnCount = (dataset, add, columnCount) => {
 
     return newArray;
 }
+
+export const calculateColumnWidths = (columnWidths,windowWidth,columnCount, firstRowTextCheck) => {
+
+    const _columnWidths = {...columnWidths};
+    const considerableWidth = Math.round(windowWidth - 20);
+
+    const columnWidth = Math.round(considerableWidth / columnCount + 1);
+
+    const columnWidthRound = Math.round(columnWidth / 10) * 10;
+    const fullWidth = columnWidthRound * columnCount;
+
+    _columnWidths.firstColumn = columnWidthRound;
+    _columnWidths.otherColumns = columnWidthRound;
+    _columnWidths.mergedColumns = fullWidth - columnWidthRound;
+    _columnWidths.fullColumn = fullWidth;
+    
+    return _columnWidths;
+
+
+}
