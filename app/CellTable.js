@@ -5,7 +5,7 @@ import { Table, TableWrapper } from 'react-native-table-component';
 import { HEADER, DESCRIPTIVE_ROW, QUESTION_ROW, LONG_ANSWER, SINGLE_SELECTION, DEFAULT } from './Constants';
 import { CellHook } from './CellHook';
 import { InputFiled } from './Fields';
-import { removeRow, addRow } from './TableHandler';
+import { removeRow, addRow, changeColumnCount } from './TableHandler';
 
 const sampleDataSet = [
     {
@@ -104,21 +104,23 @@ const sampleDataSet = [
         ]
     }
 ];
+
+
+const columnWidthsTemplate = {
+    firstColumn: 50,
+    otherColumns: 40,
+    mergedColumns: 80,
+    fullColumn: 130
+};
+
 const CellTable = () => {
     const [number, onChangeNumber] = React.useState('');
     const [rowType, onchangeInsertRowType] = React.useState(1);
     const [questionType, onchangeInsertquestionType] = React.useState(1);
     const [columnCount, onChangeColumnCount] = React.useState(3);
     const [tableData, onChangeTableData] = React.useState(sampleDataSet);
+    const [columnWidths, setColumnWidths] = React.useState(columnWidthsTemplate);
     
-
-    const columnWidths = {
-        firstColumn: 120,
-        otherColumns: 120,
-        mergedColumns: 240,
-        fullColumn: 360
-    };
-
     const onchangeRemoveRowIndex = (number) => {
         onChangeNumber(number);
         const updatedDataset = removeRow(Object.assign([], tableData),number);
@@ -137,17 +139,31 @@ const CellTable = () => {
         const updatedDataset = addRow(Object.assign([], tableData),parseInt(number), rowType,columnCount, true);
         onChangeTableData(Object.assign([], updatedDataset));
     }
+
+    const changeColumns = (add) => {
+console.log('object');
+        let columnCountCopy  = columnCount;
+
+        if(add){
+            columnCountCopy = columnCount + 1;
+        }else if(!add && columnCount > 3) {
+            columnCountCopy = columnCount - 1;
+        }
+        onChangeColumnCount(columnCountCopy);
+        const updatedDataset =  changeColumnCount(tableData, add, columnCountCopy);
+        onChangeTableData(Object.assign([], updatedDataset));
+    }
     
     return (
         <View style={styles.container}>
             <View style={styles.paddingTop}>
-          <TouchableOpacity onPress={() => {}} >
+          <TouchableOpacity onPress={() => changeColumns(true)} >
               <View style={styles.btn}>
                   <Text style={styles.btnText}>insert column</Text>
               </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => {}} >
+          <TouchableOpacity onPress={() => changeColumns(false) } >
               <View style={styles.btn}>
                   <Text style={styles.btnText}>Remove column</Text>
               </View>

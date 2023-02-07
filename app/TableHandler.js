@@ -1,4 +1,11 @@
-import { ROW_TYPE_AND_TEMPLATE_MAPING,DESCRIPTIVE_ROW, COLUMN_TEMPLATE} from './Constants';
+import { 
+    ROW_TYPE_AND_TEMPLATE_MAPING,
+    DESCRIPTIVE_ROW, 
+    COLUMN_TEMPLATE, 
+    HEADER, 
+    QUESTION_ROW,
+    SINGLE_SELECTION
+} from './Constants';
 
 export const removeRow = (dataset, index) => {
 
@@ -40,6 +47,26 @@ export const addRow = (dataset, index, rowType, columnCount, below = true) => {
         }
     }
 
+
+    return newArray;
+}
+
+export const changeColumnCount = (dataset, add, columnCount) => {
+    const newArray = [];
+    for(let rowData of dataset){
+
+        if(rowData.rowType === HEADER || (rowData.rowType === QUESTION_ROW && rowData.questionSelectionType === SINGLE_SELECTION)){
+
+            if(add){
+             const newColumn = { ...COLUMN_TEMPLATE, columnId: columnCount + 1}; 
+             rowData.columns = [ ...rowData.columns, newColumn ]; 
+            }else{
+                rowData.columns.pop()
+            }
+           
+        }
+        newArray.push(rowData)
+    }
 
     return newArray;
 }
