@@ -16,12 +16,6 @@ const QUESTION_PLACEHOLDER = "Question";
 const VALUE_PLACEHOLDER = "Value";
 const TYPE_QUESTION_HERE = "type question here";
 
-const HEADER_ROW_ID = 1;
-const DESCRIPTIVE_ROW_ID = 2;
-const QUESTION_LONG = 3
-const QUESTION_SINGLE = 4;
-
-
 
 const DESCRIPTIVE_ROW_TEMPLATE = {
         rowId: null,
@@ -46,6 +40,37 @@ const HEADER_ROW_TEMPLATE = {
     ]
 };
 
+const QUESTION_ROW_LONG_TEMPLATE = {
+    rowId: 1,
+    rowType: QUESTION_ROW,
+    questionSelectionType: LONG_ANSWER,
+    columns: [
+        {
+            columnId: 1,
+            clickableColumn: false,
+            columnText: null,
+            selected: false,
+            value: null,
+        },
+        {
+            columnId: 2,
+            clickableColumn: false,
+            columnText: null,
+            selected: false,
+            value: null,
+        }
+    ]
+};
+
+const QUESTION_ROW_SINGLE_TEMPLATE = {
+    rowId: 1,
+    rowType: QUESTION_ROW,
+    questionSelectionType: SINGLE_SELECTION,
+    columns: [
+        
+    ]
+};
+
 const COLUMN_TEMPLATE = {
     columnId: null,
     clickableColumn: false,
@@ -55,11 +80,123 @@ const COLUMN_TEMPLATE = {
 }
 
 const ROW_TYPE_AND_TEMPLATE_MAPING = {
-    [HEADER_ROW_ID]: HEADER_ROW_TEMPLATE,
-    [DESCRIPTIVE_ROW_ID]: DESCRIPTIVE_ROW_TEMPLATE,
-    [QUESTION_LONG]: DESCRIPTIVE_ROW,
-    [QUESTION_SINGLE]: DESCRIPTIVE_ROW,
+    [HEADER]: HEADER_ROW_TEMPLATE,
+    [DESCRIPTIVE_ROW]: DESCRIPTIVE_ROW_TEMPLATE,
+    [`${QUESTION_ROW}_${LONG_ANSWER}`]: QUESTION_ROW_LONG_TEMPLATE,
+    [`${QUESTION_ROW}_${SINGLE_SELECTION}`]: QUESTION_ROW_SINGLE_TEMPLATE,
 }
+
+const dataRows = [HEADER, DESCRIPTIVE_ROW, QUESTION_ROW
+]
+
+const dataColumns = [SINGLE_SELECTION, LONG_ANSWER
+]
+
+const sampleDataSet = [
+    {
+        rowId: 1,
+        id: 1,
+        rowType: HEADER,
+        questionSelectionType: null,
+        columns: [
+            {
+                columnId: 1,
+                clickableColumn: false,
+                columnText: null,
+                selected: false,
+                value: null
+            },
+            {
+                columnId: 2,
+                clickableColumn: false,
+                columnText: null,
+                selected: false,
+                value: null,
+            },
+            {
+                columnId: 3,
+                clickableColumn: false,
+                columnText: null,
+                selected: false,
+                value: null,
+            },
+        ]
+    },
+    {
+        rowId: 2,
+        id: 2,
+        rowType: DESCRIPTIVE_ROW,
+        questionSelectionType: null,
+        columns: [
+            {
+                columnId: 1,
+                clickableColumn: false,
+                columnText: null,
+                selected: false,
+                value: null,
+            }
+        ]
+    },
+    {
+        rowId: 3,
+        id: 3,
+        rowType: QUESTION_ROW,
+        questionSelectionType: LONG_ANSWER,
+        columns: [
+            {
+                columnId: 1,
+                clickableColumn: false,
+                columnText: null,
+                selected: false,
+                value: null,
+            },
+            {
+                columnId: 2,
+                clickableColumn: false,
+                columnText: null,
+                selected: false,
+                value: null,
+            }
+        ]
+    },
+    {
+        rowId: 4,
+        id: 4,
+        rowType: QUESTION_ROW,
+        questionSelectionType: SINGLE_SELECTION,
+        columns: [
+            {
+                columnId: 1,
+                clickableColumn: false,
+                columnText: null,
+                selected: false,
+                value: null,
+            },
+            {
+                columnId: 2,
+                clickableColumn: false,
+                columnText: null,
+                selected: false,
+                value: null,
+            },
+            {
+                columnId: 3,
+                clickableColumn: false,
+                columnText: null,
+                selected: false,
+                value: null,
+            },
+        ]
+    }
+];
+
+
+const columnWidthsTemplate = {
+    firstColumn: 50,
+    otherColumns: 40,
+    mergedColumns: 80,
+    fullColumn: 130
+};
 
 
 
@@ -79,5 +216,9 @@ export {
     DESCRIPTIVE_ROW_TEMPLATE,
     COLUMN_TEMPLATE,
     HEADER_ROW_TEMPLATE,
-    ROW_TYPE_AND_TEMPLATE_MAPING
+    ROW_TYPE_AND_TEMPLATE_MAPING,
+    dataRows,
+    dataColumns,
+    columnWidthsTemplate,
+    sampleDataSet
 }

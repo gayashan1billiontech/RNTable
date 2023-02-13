@@ -31,7 +31,7 @@ export const CellHook = {
         const placeholder = [DESCRIPTIVE_ROW].includes(rowType) ? DESCRIPTIVE_ROW_PLACEHOLDER : cellIndex === 1 ? TYPE_HEADER_HERE : HEADER_PLACEHOLDER;
 
         const onFocus = () => {
-            onCardPress(elementsRef?.current[rowIndex]);
+            onCardPress(elementsRef?.current[rowIndex], rowIndex);
         }
 
         return defaultCell(cellData, rowIndex, cellIndex, width, placeholder, ref, onFocus);
@@ -42,7 +42,7 @@ export const CellHook = {
         const placeholder = cellIndex === 1 ? `${QUESTION_PLACEHOLDER} ${rowIndex}` : `${VALUE_PLACEHOLDER} ${cellIndex - 1}`;
         
         const onFocus = () => {
-            onCardPress(elementsRef?.current[rowIndex]);
+            onCardPress(elementsRef?.current[rowIndex], rowIndex);
         };
 
         return defaultCell(cellData, rowIndex, cellIndex, width, placeholder, ref, onFocus);
@@ -53,7 +53,7 @@ export const CellHook = {
         const placeholder = cellIndex === 1 ? TYPE_QUESTION_HERE : null;
 
         const onFocus = () => {
-            onCardPress(elementsRef?.current[rowIndex]);
+            onCardPress(elementsRef?.current[rowIndex], rowIndex);
         };
 
         return defaultCell(cellData, rowIndex, cellIndex, width, placeholder, ref, onFocus);

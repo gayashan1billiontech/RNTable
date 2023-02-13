@@ -4,7 +4,8 @@ import {
     COLUMN_TEMPLATE, 
     HEADER, 
     QUESTION_ROW,
-    SINGLE_SELECTION
+    SINGLE_SELECTION,
+    LONG_ANSWER
 } from './Constants';
 
 export const removeRow = (dataset, index) => {
@@ -19,11 +20,11 @@ export const removeRow = (dataset, index) => {
     return filteredData;
 }
 
-export const addRow = (dataset, index, rowType, columnCount, below = true) => {
+export const addRow = (dataset, index, rowType, selectedColumType, columnCount, below = false) => {
     const newArray = [];
     const conditionalIdex = below ? index: index-1;
     const insertIndex = below ? index + 1 : index;
-
+    
     for(let rowData of dataset){
 
         const clonedObject = Object.assign({}, rowData);
@@ -33,10 +34,11 @@ export const addRow = (dataset, index, rowType, columnCount, below = true) => {
             
         }else if(clonedObject.rowId === conditionalIdex){
             newArray.push(clonedObject);
-            const newObject = { ...ROW_TYPE_AND_TEMPLATE_MAPING[rowType]};
-            if(newObject.rowType !== DESCRIPTIVE_ROW && newObject.questionSelectionType !== LONG_ANSWER){
+            const selectedTemplate = rowType !== QUESTION_ROW ? ROW_TYPE_AND_TEMPLATE_MAPING[rowType] : ROW_TYPE_AND_TEMPLATE_MAPING[`${rowType}_${selectedColumType}`]
+            const newObject = { ...selectedTemplate };
+            if(newObject.rowType !== DESCRIPTIVE_ROW && selectedColumType !== LONG_ANSWER){
                 for(let i = 0 ; i < columnCount; i++){
-                    newObject.columns.push(COLUMN_TEMPLATE);
+                    newObject.columns.push({ ...COLUMN_TEMPLATE, columnId: i + 1});
                 }
             }
             newObject.rowId = insertIndex;
