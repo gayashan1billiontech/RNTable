@@ -221,7 +221,7 @@ const CellTable = () => {
                             <TableWrapper key={rowId} style={styles.row} onPress={() => test(false)}>
                                 
                                 {
-                                    rowData.columns.map((cellData, cellIndex) => {
+                                    rowData.columns.map((cellData) => {
                                         const columnType = rowData.questionSelectionType || DEFAULT;
                                         const ref= elementsRef?.current[rowId];
 
