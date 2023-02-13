@@ -2,15 +2,19 @@
 import React from 'react';
 import { InputFiled } from './Fields';
 
-const CellInputComponent = (props) => {
+const CellInputComponent = React.forwardRef((props, ref) => {
 
 
     return (
         <InputFiled
+        {...props}
             placeholder={props.placeholder}
-            keyboardType={'default'} />
+            keyboardType={'default'} 
+            ref={ref}
+            />
+
     )
 
-}
+});
 
 export default CellInputComponent;

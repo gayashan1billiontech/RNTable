@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, TouchableOpacity, TextInput, Text } from 'react-native';
 
-const InputFiled = (props) => {
+const InputFiled = React.forwardRef((props, ref) => {
     return (
         <SafeAreaView>
             <TextInput
@@ -10,10 +10,12 @@ const InputFiled = (props) => {
                 value={props.number}
                 placeholder={props.placeholder}
                 keyboardType={props.keyboardType}
+                onFocus={props.onFocus ? () => props.onFocus() : () => {}}
+                ref={ref}
             />
         </SafeAreaView>
     );
-};
+});
 
 const TextViewer = (props) => {
 

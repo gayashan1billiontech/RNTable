@@ -15,36 +15,48 @@ import {
     TYPE_QUESTION_HERE
 } from './Constants';
 
-const element = (placeholder) => (
-    <CellInputComponent placeholder={placeholder} />
+const element = (placeholder, onFocus, ref) => (
+    <CellInputComponent placeholder={placeholder} onFocus = {onFocus} ref={ref} />
 );
 
 
-const defaultCell = (cellData, rowIndex, cellIndex, width, placeholder) => (
-    <Cell key={`${rowIndex}_${cellIndex}`} style={{ width: width }} data={cellData.columnText || element(placeholder)} textStyle={styles.text} />
+const defaultCell = (cellData, rowIndex, cellIndex, width, placeholder, ref, onFocus) => (
+    <Cell key={`${rowIndex}_${cellIndex}`} style={{ width: width }} data={cellData.columnText || element(placeholder, onFocus, ref )} textStyle={styles.text}   />
 );
 
 export const CellHook = {
-    [DEFAULT]: (rowType, cellData, rowIndex, cellIndex, columnWidths) => {
+    [DEFAULT]: (rowType, cellData, rowIndex, cellIndex, columnWidths, ref, onCardPress, elementsRef) => {
 
         const width = [DESCRIPTIVE_ROW].includes(rowType) ? columnWidths.fullColumn : cellIndex === 1 ? columnWidths.firstColumn : columnWidths.otherColumns;
         const placeholder = [DESCRIPTIVE_ROW].includes(rowType) ? DESCRIPTIVE_ROW_PLACEHOLDER : cellIndex === 1 ? TYPE_HEADER_HERE : HEADER_PLACEHOLDER;
 
-        return defaultCell(cellData, rowIndex, cellIndex, width, placeholder);
+        const onFocus = () => {
+            onCardPress(elementsRef?.current[rowIndex]);
+        }
+
+        return defaultCell(cellData, rowIndex, cellIndex, width, placeholder, ref, onFocus);
     },
-    [SINGLE_SELECTION]: (rowType, cellData, rowIndex, cellIndex, columnWidths) => {
+    [SINGLE_SELECTION]: (rowType, cellData, rowIndex, cellIndex, columnWidths, ref, onCardPress, elementsRef) => {
 
         const width = cellIndex === 1 ? columnWidths.firstColumn : columnWidths.otherColumns;
         const placeholder = cellIndex === 1 ? `${QUESTION_PLACEHOLDER} ${rowIndex}` : `${VALUE_PLACEHOLDER} ${cellIndex - 1}`;
+        
+        const onFocus = () => {
+            onCardPress(elementsRef?.current[rowIndex]);
+        };
 
-        return defaultCell(cellData, rowIndex, cellIndex, width, placeholder);
+        return defaultCell(cellData, rowIndex, cellIndex, width, placeholder, ref, onFocus);
     },
-    [LONG_ANSWER]: (rowType, cellData, rowIndex, cellIndex, columnWidths) => {
+    [LONG_ANSWER]: (rowType, cellData, rowIndex, cellIndex, columnWidths, ref, onCardPress, elementsRef) => {
 
         const width = cellIndex === 1 ? columnWidths.firstColumn : columnWidths.mergedColumns;
         const placeholder = cellIndex === 1 ? TYPE_QUESTION_HERE : null;
 
-        return defaultCell(cellData, rowIndex, cellIndex, width, placeholder);
+        const onFocus = () => {
+            onCardPress(elementsRef?.current[rowIndex]);
+        };
+
+        return defaultCell(cellData, rowIndex, cellIndex, width, placeholder, ref, onFocus);
     }
 };
 

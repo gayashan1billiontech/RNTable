@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React,{useRef , createRef , useState} from 'react';
 import { StyleSheet, View, TouchableOpacity, Text, Dimensions } from 'react-native';
 import { Table, TableWrapper } from 'react-native-table-component';
 import { HEADER, DESCRIPTIVE_ROW, QUESTION_ROW, LONG_ANSWER, SINGLE_SELECTION, DEFAULT } from './Constants';
@@ -121,6 +121,9 @@ const CellTable = () => {
     const [columnCount, onChangeColumnCount] = React.useState(3);
     const [tableData, onChangeTableData] = React.useState(sampleDataSet);
     const [columnWidths, setColumnWidths] = React.useState(columnWidthsTemplate);
+    const [topH,setTop] = useState(0);
+
+    const elementsRef = useRef(tableData.map(() => createRef()));
 
     React.useEffect(() => {
         const newWidths = calculateColumnWidths(columnWidths,windowWidth,columnCount);
@@ -165,41 +168,64 @@ const CellTable = () => {
         const updatedDataset =  columnCount !== columnCountCopy? changeColumnCount(tableData, add, columnCountCopy) : tableData;
         onChangeTableData(Object.assign([], updatedDataset));
     }
+
+    const onCardPress = (newRef) => {
+        newRef?.current?.measureInWindow( (fx, fy, width, height, px, py) => {
+            setTop(fy + 55)
+        })        
+    }
+
+    const Popup = () => {
+        if(topH === 0 ){
+            return null
+        }
+        return(
+            <View style={{backgroundColor:'yellow' , position:'absolute',zIndex:3 , height:60,width:430 , top:topH}} >
+                <View style={styles.paddingTop}>
+                    <TouchableOpacity onPress={() => changeColumns(true)} >
+                        <View style={styles.btn}>
+                            <Text style={styles.btnText}>insert column</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => changeColumns(false) } >
+                        <View style={styles.btn}>
+                            <Text style={styles.btnText}>Remove column</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => onchangeRemoveRowIndex(1) } >
+                        <View style={styles.btn}>
+                            <Text style={styles.btnText}>Remove Row</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        )
+    }
     
     return (
         <View style={styles.container}>
-            <View style={styles.paddingTop}>
-          <TouchableOpacity onPress={() => changeColumns(true)} >
-              <View style={styles.btn}>
-                  <Text style={styles.btnText}>insert column</Text>
-              </View>
-          </TouchableOpacity>
+            <View style={styles.insertRow}>
+                    <InputFiled onChangeNumber={onchangeInsertRowType}  placeholder="insert row type" keyboardType="numeric" styles={styles.input} />
+                    <InputFiled onChangeNumber={onchangeInsertquestionType}  placeholder="insert question type" keyboardType="numeric" styles={styles.input} />
+                    <InputFiled onChangeNumber={onAddRowAbove} placeholder="insert row above" keyboardType="numeric" styles={styles.input} />
+                    <InputFiled onChangeNumber={onAddRowBelow}  placeholder="insert row below" keyboardType="numeric" styles={styles.input} />
+            </View>
 
-          <TouchableOpacity onPress={() => changeColumns(false) } >
-              <View style={styles.btn}>
-                  <Text style={styles.btnText}>Remove column</Text>
-              </View>
-          </TouchableOpacity>
-      </View>
-      <View style={styles.insertRow}>
-            <InputFiled onChangeNumber={onchangeInsertRowType}  placeholder="insert row type" keyboardType="numeric" styles={styles.input} />
-            <InputFiled onChangeNumber={onchangeInsertquestionType}  placeholder="insert question type" keyboardType="numeric" styles={styles.input} />
-            <InputFiled onChangeNumber={onAddRowAbove} placeholder="insert row above" keyboardType="numeric" styles={styles.input} />
-            <InputFiled onChangeNumber={onAddRowBelow}  placeholder="insert row below" keyboardType="numeric" styles={styles.input} />
-      </View>
-      <View>
-            <InputFiled onChangeNumber={onchangeRemoveRowIndex}  placeholder="remove row" keyboardType="numeric" styles={styles.input} />
-      </View>
             <Table borderStyle={{ borderWidth: 2, borderColor: '#c8e1ff' }}>
                 {
                     tableData.map((rowData, rowId) => {
                         return (
-                            <TableWrapper key={rowId} style={styles.row}>
+                            
+                            <TableWrapper key={rowId} style={styles.row} onPress={() => test(false)}>
+                                
                                 {
                                     rowData.columns.map((cellData, cellIndex) => {
                                         const columnType = rowData.questionSelectionType || DEFAULT;
+                                        const ref= elementsRef?.current[rowId];
 
-                                        const _cell = CellHook && CellHook[columnType] ? CellHook[columnType](rowData.rowType, cellData, rowId, cellData.columnId, columnWidths) : null
+                                        const _cell = CellHook && CellHook[columnType] ? CellHook[columnType](rowData.rowType, cellData, rowId, cellData.columnId, columnWidths, ref, onCardPress, elementsRef) : null
                                         return _cell;
                                     })
                                 }
@@ -208,6 +234,7 @@ const CellTable = () => {
                     })
                 }
             </Table>
+            <Popup />
         </View>
     )
 
@@ -225,7 +252,6 @@ const styles = StyleSheet.create({
         padding: 10,
       },
       btn: { width: 200, height: 18, marginLeft: 15, backgroundColor: '#c8e1ff', borderRadius: 2 },
-      paddingTop: {paddingTop: 30, paddingBottom: 30},
       btnText: { textAlign: 'center' },
       insertRow: {backgroundColor: '#c8e1ff' }
 });
